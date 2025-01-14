@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,6 +16,7 @@
             background-color: #f8f9fa;
             color: #333;
         }
+
         header {
             background-color: #007bff;
             color: white;
@@ -23,27 +25,34 @@
             align-items: center;
             padding: 1em 2em;
         }
+
         header h1 {
             margin: 0;
+            font-size: 1.5em;
         }
+
         nav {
             display: flex;
             gap: 15px;
         }
+
         nav a {
             text-decoration: none;
             color: white;
             font-weight: bold;
         }
+
         nav a:hover {
             text-decoration: underline;
         }
+
         main {
             max-width: 800px;
             margin: auto;
             padding: 20px;
             flex: 1;
         }
+
         footer {
             background-color: #007bff;
             color: white;
@@ -51,38 +60,47 @@
             padding: 1em 0;
             margin-top: auto;
         }
+
         footer p {
             margin: 0;
         }
+
         .socials {
             display: flex;
             justify-content: center;
-            gap: 10px;
+            gap: 30px;
         }
+
         .socials a {
             color: white;
             text-decoration: none;
-            font-size: 1.2em;
+            font-size: 1.5em;
         }
+
         .socials a:hover {
             text-decoration: underline;
         }
+
         .bio p {
             line-height: 1.6;
         }
+
         .awards-projects ul {
             list-style: none;
             padding: 0;
         }
+
         .awards-projects ul li {
             margin: 10px 0;
             display: flex;
+            flex-wrap: wrap;
             align-items: center;
             background-color: #ffffff;
             padding: 15px;
             border-radius: 8px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
+
         .awards-projects img {
             width: 200px;
             height: 200px;
@@ -90,28 +108,52 @@
             object-fit: cover;
             border-radius: 8px;
         }
+
+        .awards-projects div {
+            flex: 1;
+        }
+
         @media (max-width: 768px) {
             header {
                 flex-direction: column;
                 text-align: center;
+                padding: 1em;
             }
+
             nav {
                 flex-wrap: wrap;
                 justify-content: center;
                 margin-top: 1em;
+                gap: 10px;
             }
+
             .awards-projects img {
-                width: 5000px;
-                height: 5000px;
+                width: 200px;
+                height: 200px;
+                margin: 0 auto 15px auto;
+            }
+
+            .awards-projects ul li {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .awards-projects div {
+                text-align: center;
+            }
+
+            .awards-projects div p {
+                text-align: left;
             }
         }
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/b1bec8acd8.js" crossorigin="anonymous"></script>
 </head>
+
 <body>
     <header>
-        <h1 style="font-size: large">Arjun Taneja</h1>
+        <h1>Arjun Taneja</h1>
         <nav>
             <a href="index.html">Home</a>
             <a href="blog.html">Blog</a>
@@ -121,49 +163,44 @@
     <main>
         <section class="bio">
             <h2>About Me</h2>
-            <p>Hi there! My name is Arjun Taneja, and I'm an undergraduate at Harvey Mudd '25 majoring in Mathematics and Computer Science.
-            </p>
+            <p>Hi there! My name is Arjun Taneja, and I'm an undergraduate at Harvey Mudd '25 majoring in Mathematics
+                and Computer Science.</p>
         </section>
 
         <section class="awards-projects">
-            <hr style="margin-top: 50px; margin-bottom: 50px"/>
+            <hr style="margin-top: 50px; margin-bottom: 50px" />
             <ul>
                 <li>
                     <img src="thumbnails/krieger.JPEG" alt="Award 1 Thumbnail">
                     <div>
                         <strong>Henry A. Krieger Award</strong>
-
-                        <p>The Henry A. Krieger Prize in Decision Sciences is an annual award presented to rising senior student or 
-                            students who show particular promise in probability, statistics, or operations research. It is normally not awarded 
-                            to a recipient of the Stavros Busenberg Price, the Giovanni Borrelli Mathematics Prize, or the Giovanni Borrelli 
-                            Mathematics Fellowship. The Krieger Prize is presented in the fall and is accompanied by an award check.
-                        </p>
+                        <p>The Henry A. Krieger Prize in Decision Sciences is an annual award presented to rising senior
+                            student or students who show particular promise in probability, statistics, or operations
+                            research. It is normally not awarded to a recipient of the Stavros Busenberg Price, the
+                            Giovanni Borrelli Mathematics Prize, or the Giovanni Borrelli Mathematics Fellowship. The
+                            Krieger Prize is presented in the fall and is accompanied by an award check.</p>
                     </div>
                 </li>
                 <li>
                     <img src="thumbnails/mcm.jpg" alt="International COMAP Scholarship award">
                     <div>
                         <strong>International COMAP Scholarship Award</strong>
-
-                        <p>
-                            The International COMAP Scholarship Award is awarded to four top MCM/ICM teams; $10,000 per team
-                            with $9000 going to the team members and $1000 to the school, in the name of the advisor. This
-                            year 28,912 teams representing 1,815 institutions, consisting of 76,346 students participated in the
-                            Mathematical Contest in Modeling (MCM)® and the Interdisciplinary Contest in Modeling (ICM)® contests.
-                        </p>
+                        <p>The International COMAP Scholarship Award is awarded to four top MCM/ICM teams; $10,000 per
+                            team with $9000 going to the team members and $1000 to the school, in the name of the
+                            advisor. This year 28,912 teams representing 1,815 institutions, consisting of 76,346
+                            students participated in the Mathematical Contest in Modeling (MCM)® and the
+                            Interdisciplinary Contest in Modeling (ICM)® contests.</p>
                     </div>
                 </li>
                 <li>
                     <img src="thumbnails/amistad.jpg" alt="Edge Science Research Project">
                     <div>
                         <strong>Edge Science Research Project</strong>
-
-                        <p>
-                            Undertook applied mathematics research on formalizing the incentive misalignment problem in the scientific 
-                            research community under the mentorship of Professor Jay Bhattacharya of Stanford's Economics department.
-                            Adapted stochastic multi-armed bandit theory to construct bounds on expected regret for scientists conditional on 
-                            particular incentive structures (grants, scholarships, etc.)
-                        </p>
+                        <p>Undertook applied mathematics research on formalizing the incentive misalignment problem in
+                            the scientific research community under the mentorship of Professor Jay Bhattacharya of
+                            Stanford's Economics department. Adapted stochastic multi-armed bandit theory to construct
+                            bounds on expected regret for scientists conditional on particular incentive structures
+                            (grants, scholarships, etc.)</p>
                     </div>
                 </li>
             </ul>
@@ -171,12 +208,12 @@
     </main>
 
     <footer>
-        <p>Connect with me:</p>
         <div class="socials">
-            <a href="https://github.com/yourgithub"><i class="fab fa-github"></i></a>
-            <a href="https://linkedin.com/in/yourlinkedin"><i class="fab fa-linkedin"></i></a>
-            <a href="https://twitter.com/yourtwitter"><i class="fab fa-twitter"></i></a>
+            <a href="https://github.com/arjoooooon" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://linkedin.com/in/arjuntaneja" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="mailto:arjun.taneja02@gmail.com"><i class="fa-solid fa-envelope"></i></a>
         </div>
     </footer>
 </body>
+
 </html>
