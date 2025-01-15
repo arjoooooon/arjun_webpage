@@ -2,6 +2,11 @@
     {
         "title": "2024 MCM/ICM, A breakdown",
         "summary": "A breakdown of our submission to the 2024 MCM/ICM competition",
-        "file": "euler.md"
+        "file": "mcm.md"
+    },
+    {
+        "title": "Convex Optimization: Mirror Descent",
+        "summary": "An introduction to the Mirror Descent algorithm",
+        "file": "mirror-descent.md"
     }
 ]

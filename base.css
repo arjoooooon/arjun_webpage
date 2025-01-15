@@ -73,6 +73,15 @@ footer p {
     text-decoration: underline;
 }
 
+main {
+    font-size: 1rem;
+    line-height: 1.5rem;
+}
+
+a {
+    color: #007bff;
+}
+
 @media (max-width: 768px) {
     header {
         flex-direction: column;
@@ -82,5 +91,9 @@ footer p {
         flex-wrap: wrap;
         justify-content: center;
         margin-top: 1em;
+    }
+    main {
+        font-size: 1.1rem;
+        line-height: 1.8rem;
     }
 }

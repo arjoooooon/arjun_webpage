@@ -21,17 +21,12 @@ HTML_TEMPLATE = """<!DOCTYPE html>
 </head>
 
 <style>
-    a {{
-        color: #007bff;
-        text-decoration: none;
-    }}
-
-    a:hover {{
-        text-decoration: underline;
-    }}
     .back_button {{
         color: #777777;
         text-decoration: none;
+    }}
+    h1 {{
+        line-height: 2.5rem;
     }}
 </style>
 
