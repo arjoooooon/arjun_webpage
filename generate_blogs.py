@@ -51,6 +51,12 @@ HTML_TEMPLATE = """<!DOCTYPE html>
             <a href="mailto:arjun.taneja02@gmail.com"><i class="fa-solid fa-envelope"></i></a>
         </div>
     </footer>
+
+    <style>
+        mjx-math {{
+            text-wrap: auto;
+        }}
+    </style>
 </body>
 </html>
 """
