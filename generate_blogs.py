@@ -17,120 +17,24 @@ HTML_TEMPLATE = """<!DOCTYPE html>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/b1bec8acd8.js" crossorigin="anonymous"></script>
-
-    <style>
-        body {{
-            font-family: 'Roboto', sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-            background-color: #f8f9fa;
-            color: #333;
-        }}
-
-        header {{
-            background-color: #007bff;
-            color: white;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1em 2em;
-        }}
-
-        header h1 {{
-            margin: 0;
-            font-size: 1.5em;
-        }}
-        nav {{
-            display: flex;
-            gap: 15px;
-        }}
-
-        nav a {{
-            text-decoration: none;
-            color: white;
-            font-weight: bold;
-        }}
-
-        nav a:hover {{
-            text-decoration: underline;
-        }}
-
-        main {{
-            max-width: 800px;
-            margin: auto;
-            padding: 20px;
-            flex: 1;
-        }}
-        article {{
-            margin-bottom: 20px;
-            border-bottom: 1px solid #ddd;
-            padding-bottom: 10px;
-        }}
-        footer {{
-            background-color: #007bff;
-            color: white;
-            text-align: center;
-            padding: 1em 0;
-            margin-top: auto;
-        }}
-
-        footer p {{
-            margin: 0;
-        }}
-
-        .socials {{
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-        }}
-
-        .socials a {{
-            color: white;
-            text-decoration: none;
-            font-size: 1.2em;
-        }}
-        .socials a:hover {{
-            text-decoration: underline;
-        }}
-
-        @media (max-width: 768px) {{
-            header {{
-                flex-direction: column;
-                text-align: center;
-                padding: 1em;
-            }}
-
-            nav {{
-                flex-wrap: wrap;
-                justify-content: center;
-                margin-top: 1em;
-                gap: 10px;
-            }}
-
-            .awards-projects img {{
-                width: 200px;
-                height: 200px;
-                margin: 0 auto 15px auto;
-            }}
-
-            .awards-projects ul li {{
-                flex-direction: column;
-                align-items: flex-start;
-            }}
-
-            .awards-projects div {{
-                text-align: center;
-            }}
-
-            .awards-projects div p {{
-                text-align: left;
-            }}
-        }}
-    </style>
+    <link rel="stylesheet" href="../base.css">
 </head>
+
+<style>
+    a {{
+        color: #007bff;
+        text-decoration: none;
+    }}
+
+    a:hover {{
+        text-decoration: underline;
+    }}
+    .back_button {{
+        color: #777777;
+        text-decoration: none;
+    }}
+</style>
+
 <body>
     <header>
         <h1>Arjun Taneja</h1>
@@ -141,6 +45,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
     </header>
 
     <main>
+        <a href="../blog.html" class="back_button"> ← Back to blogs </a>
         {content}
     </main>
 

@@ -6,7 +6,7 @@
 
 **Date**: Jan 15, 2024
 
-On an auspicious night in early May, my team and I found out that we had won the highest possible award in the international applied mathematics contest MCM/ICM. Out of almost 30,000 teams, only 4 were given the [International COMAP scholarship Award](https://www.contest.comap.com/undergraduate/contests/mcm/contests/2024/results/2024_COMAP-Scholarship-Press-Release.pdf)–a recognition that also came with a cash prize of $10,000. Along with this, we received [another award](https://www.contest.comap.com/undergraduate/contests/mcm/contests/2024/results/) from the Mathematical Association of America, and an "Outstanding Winner" designation for our paper designation.
+On an auspicious night in early May, my team and I found out that we had won the highest possible award in the international applied mathematics contest MCM/ICM. Out of almost 30,000 teams, only 4 were given the <a href="https://www.contest.comap.com/undergraduate/contests/mcm/contests/2024/results/2024_COMAP-Scholarship-Press-Release.pdf" target="_blank">International COMAP Scholarship Award</a>–a recognition that also came with a cash prize of $10,000. Along with this, we received <a href="https://www.contest.comap.com/undergraduate/contests/mcm/contests/2024/results/" target="_blank">another award</a> from the Mathematical Association of America, and an "Outstanding Winner" designation for our paper designation.
 
 Needless to say, I was absolutely thrilled. Looking back on the project after almost a year, I felt it would be an interesting exercise to go through the features of the contest, and what the problem-solving process looked like for my team.
 
