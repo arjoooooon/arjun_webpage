@@ -7,7 +7,7 @@
     <link rel="icon" type="image/png" href="../favicomatic/favicon-32x32.png"/>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/b1bec8acd8.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="../base.css">
 </head>
 
@@ -27,51 +27,21 @@
         <nav>
             <a href="../index.html">Home</a>
             <a href="../blog.html">Blog</a>
+            <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+                <i class="fas fa-sun" id="theme-icon"></i>
+            </button>
         </nav>
     </header>
 
     <main>
         <a href="../blog.html" class="back_button"> ← Back to blogs </a>
-        <h1>Mirror Descent: A Fundamental Algorithm in Convex Optimization</h1>
-<p><strong>Date:</strong> Jan 19, 2024</p>
-<p>Mirror Descent is a powerful algorithm in convex optimization that extends the classic Gradient Descent method by leveraging problem geometry. Its main appeal lies in improved asymptotic complexity and its ability to handle high-dimensional optimization problems efficiently.</p>
-<h2>Improvements in Asymptotic Complexity</h2>
-<p>Mirror Descent achieves better asymptotic complexity in terms of the number of oracle calls required for convergence. Compared to standard Gradient Descent, Mirror Descent exploits a problem-specific <em>distance-generating function</em> \( \psi \) to adapt the step direction and size based on the geometry of the optimization problem.</p>
-<p>For a convex function \( f(x) \) with Lipschitz constant \( L \) and strong convexity parameter \( \sigma \), the convergence rate of Mirror Descent under appropriate conditions is:</p>
-<p>\[
-f(x_T) - f(x^*) \leq \frac{L^2 R^2}{2 \sigma T},
-\]</p>
-<p>where:
-- \( T \) is the number of iterations (or oracle calls),
-- \( R \) is the radius of the feasible region, and
-- \( x^* \) is the optimal solution.</p>
-<p>This quadratic improvement in the dependence on \( T \) compared to the linear rate of Gradient Descent makes Mirror Descent particularly attractive in large-scale settings.</p>
-<h2>Assumptions</h2>
-<p>For Mirror Descent to achieve these guarantees, several key assumptions must hold:</p>
-<ol>
-<li><strong>Convexity</strong>: The objective function \( f(x) \) must be convex.</li>
-<li><strong>Lipschitz Continuity</strong>: The gradient \( \nabla f(x) \) must satisfy \( \|\nabla f(x_1) - \nabla f(x_2)\| \leq L \|x_1 - x_2\| \) for some constant \( L \).</li>
-<li><strong>Strong Convexity of \( \psi \)</strong>: The distance-generating function \( \psi(x) \) must be strongly convex with respect to a chosen norm \( \|\cdot\| \), i.e.,
-\[
-\psi(y) \geq \psi(x) + \langle \nabla \psi(x), y - x \rangle + \frac{\sigma}{2} \|y - x\|^2.
-\]</li>
-</ol>
-<p>These assumptions ensure that the dual space updates remain stable and that the method converges efficiently.</p>
-<h2>Update Step</h2>
-<p>The core of the Mirror Descent algorithm is the following update step:</p>
-<ol>
-<li>Compute the gradient of the objective: \( g_t = \nabla f(x_t) \).</li>
-<li>Update in the dual space using the gradient: \( z_{t+1} = z_t - \eta g_t \), where \( \eta \) is the learning rate.</li>
-<li>Map back to the primal space via the mirror map (the gradient of \( \psi \)):
-\(\)</li>
-</ol>
-<p>\[x_{t+1} = \nabla \psi^*(z_{t+1}),\]</p>
-<p>where \( \psi^* \) is the convex conjugate of \( \psi \).</p>
-<p>This process ensures that each step respects the underlying geometry of the problem.</p>
-<h2>Conclusion</h2>
-<p>Mirror Descent is a versatile and efficient tool for solving convex optimization problems, particularly when the problem geometry is complex or high-dimensional. By tailoring the distance-generating function \( \psi \), the algorithm can achieve significant improvements in convergence rates while maintaining computational efficiency.</p>
-<hr />
-<p>If you found this post helpful, feel free to reach out or share your thoughts in the comments!</p>
+        <h1>Mirror Descent: A Geometric Perspective</h1>
+<div align="center">
+  <img src="../thumbnails/amistad.jpg" width="80%">
+</div>
+
+<p><strong>Date</strong>: Jan 15, 2024</p>
+<p>Mirror descent is a powerful optimization algorithm that generalizes gradient descent by using a different geometry. In this post, I'll explore the geometric intuition behind mirror descent and how it relates to the Bregman divergence.</p>
     </main>
 
     <footer>
@@ -81,6 +51,44 @@ f(x_T) - f(x^*) \leq \frac{L^2 R^2}{2 \sigma T},
             <a href="mailto:arjun.taneja02@gmail.com"><i class="fa-solid fa-envelope"></i></a>
         </div>
     </footer>
+
+    <script>
+        // Dark mode toggle functionality
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
+        const html = document.documentElement;
+
+        // Check for saved theme preference or default to light mode
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        html.setAttribute('data-theme', currentTheme);
+        updateThemeIcon(currentTheme);
+
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateThemeIcon(newTheme);
+        });
+
+        function updateThemeIcon(theme) {
+            if (theme === 'dark') {
+                themeIcon.className = 'fas fa-moon';
+            } else {
+                themeIcon.className = 'fas fa-sun';
+            }
+        }
+
+        // Check if user prefers dark mode and set initial theme
+        if (localStorage.getItem('theme') === null) {
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            const initialTheme = prefersDark ? 'dark' : 'light';
+            html.setAttribute('data-theme', initialTheme);
+            localStorage.setItem('theme', initialTheme);
+            updateThemeIcon(initialTheme);
+        }
+    </script>
 
     <style>
         mjx-math {

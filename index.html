@@ -22,10 +22,15 @@
             display: flex;
             flex-wrap: wrap;
             align-items: center;
-            background-color: #ffffff;
+            background-color: var(--bg-secondary);
             padding: 15px;
             border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 4px var(--shadow);
+            transition: background-color 0.3s, box-shadow 0.3s;
+        }
+
+        .awards-projects ul li:hover {
+            background-color: var(--hover-bg);
         }
 
         .awards-projects img {
@@ -62,7 +67,7 @@
         }
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/b1bec8acd8.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
 <body>
@@ -71,6 +76,9 @@
         <nav>
             <a href="index.html">Home</a>
             <a href="blog.html">Blog</a>
+            <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+                <i class="fas fa-sun" id="theme-icon"></i>
+            </button>
         </nav>
     </header>
 
@@ -88,33 +96,36 @@
                     <img src="thumbnails/krieger.JPEG" alt="Award 1 Thumbnail">
                     <div>
                         <strong>Henry A. Krieger Award</strong>
-                        <p>The Henry A. Krieger Prize in Decision Sciences is an annual award presented to rising senior
+                        <p class="collapsed">The Henry A. Krieger Prize in Decision Sciences is an annual award presented to rising senior
                             student or students who show particular promise in probability, statistics, or operations
                             research. It is normally not awarded to a recipient of the Stavros Busenberg Price, the
                             Giovanni Borrelli Mathematics Prize, or the Giovanni Borrelli Mathematics Fellowship. The
                             Krieger Prize is presented in the fall and is accompanied by an award check.</p>
+                        <button class="read-more-btn" onclick="toggleReadMore(this)">…Read More</button>
                     </div>
                 </li>
                 <li>
                     <img src="thumbnails/mcm.jpg" alt="International COMAP Scholarship award">
                     <div>
                         <strong>International COMAP Scholarship Award</strong>
-                        <p>The International COMAP Scholarship Award is awarded to four top MCM/ICM teams; $10,000 per
+                        <p class="collapsed">The International COMAP Scholarship Award is awarded to four top MCM/ICM teams; $10,000 per
                             team with $9000 going to the team members and $1000 to the school, in the name of the
                             advisor. This year 28,912 teams representing 1,815 institutions, consisting of 76,346
                             students participated in the Mathematical Contest in Modeling (MCM)® and the
                             Interdisciplinary Contest in Modeling (ICM)® contests.</p>
+                        <button class="read-more-btn" onclick="toggleReadMore(this)">…Read More</button>
                     </div>
                 </li>
                 <li>
                     <img src="thumbnails/amistad.jpg" alt="Edge Science Research Project">
                     <div>
                         <strong>Edge Science Research Project</strong>
-                        <p>Undertook applied mathematics research on formalizing the incentive misalignment problem in
+                        <p class="collapsed">Undertook applied mathematics research on formalizing the incentive misalignment problem in
                             the scientific research community under the mentorship of Professor Jay Bhattacharya of
                             Stanford's Economics department. Adapted stochastic multi-armed bandit theory to construct
                             bounds on expected regret for scientists conditional on particular incentive structures
                             (grants, scholarships, etc.)</p>
+                        <button class="read-more-btn" onclick="toggleReadMore(this)">…Read More</button>
                     </div>
                 </li>
             </ul>
@@ -128,6 +139,58 @@
             <a href="mailto:arjun.taneja02@gmail.com"><i class="fa-solid fa-envelope"></i></a>
         </div>
     </footer>
+
+    <script>
+        // Dark mode toggle functionality
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
+        const html = document.documentElement;
+
+        // Check for saved theme preference or default to light mode
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        html.setAttribute('data-theme', currentTheme);
+        updateThemeIcon(currentTheme);
+
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateThemeIcon(newTheme);
+        });
+
+        function updateThemeIcon(theme) {
+            if (theme === 'dark') {
+                themeIcon.className = 'fa fa-moon';
+            } else {
+                themeIcon.className = 'fa fa-sun';
+            }
+        }
+
+        // Check if user prefers dark mode and set initial theme
+        if (localStorage.getItem('theme') === null) {
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            const initialTheme = prefersDark ? 'dark' : 'light';
+            html.setAttribute('data-theme', initialTheme);
+            localStorage.setItem('theme', initialTheme);
+            updateThemeIcon(initialTheme);
+        }
+
+        // Read More functionality
+        function toggleReadMore(button) {
+            const paragraph = button.previousElementSibling;
+            const isCollapsed = paragraph.classList.contains('collapsed');
+            
+            if (isCollapsed) {
+                paragraph.classList.remove('collapsed');
+                button.textContent = '…Read Less';
+            } else {
+                paragraph.classList.add('collapsed');
+                button.textContent = '…Read More';
+            }
+        }
+    </script>
 </body>
 
 </html>
